@@ -128,7 +128,7 @@ func processIPs(ipChannel <-chan string, wg *sync.WaitGroup) {
 	for ip := range ipChannel {
 		ptrDomainNames, err := net.LookupAddr(ip)
 		if err != nil {
-			fmt.Printf("%s\t%v\n", ip, err)
+			fmt.Printf("%s,%v\n", ip, err)
 			continue
 		}
 
@@ -146,6 +146,6 @@ func processIPs(ipChannel <-chan string, wg *sync.WaitGroup) {
 			cleanedDomainNames = append(cleanedDomainNames, ptrDomainName)
 		}
 
-		fmt.Printf("%s\t%s\n", ip, strings.Join(cleanedDomainNames, "\n"))
+		fmt.Printf("%s,%s\n", ip, strings.Join(cleanedDomainNames, "\n"))
 	}
 }
