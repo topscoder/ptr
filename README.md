@@ -2,6 +2,22 @@
 
 This is a simple Go script that performs PTR (reverse DNS) lookups for IP addresses. It can handle single IP addresses, IP addresses from a file, or IP addresses provided via stdin.
 
+## Example
+
+```
+ptr 8.8.8.8
+8.8.8.8,dns.google
+
+ptr 185.15.59.224
+185.15.59.224,text-lb.esams.wikimedia.org
+
+echo "8.8.8.8" | ptr -
+8.8.8.8,dns.google
+
+ptr ips.txt
+9.9.9.9,dns9.quad9.net
+```
+
 ## Installation
 
 To install ptr, you can use the following command:
